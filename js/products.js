@@ -19,6 +19,7 @@ async function showFilteredJackets(genderFilter = null) {
             <p>${product.description}</p>
             <p>price: ${product.price} nok</p>
             <button id="add-to-cart-${product.id}" data-id="${product.id}">add to cart</button>
+            <a href="/product/index.html?id=${product.id}" class="read-more-btn">read more</a>
             </div>`;
 
         container.innerHTML += productHTML; //spesifiserer hvor å plassere

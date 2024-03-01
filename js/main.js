@@ -27,6 +27,7 @@ async function homeJackets() {
                     <p>Color: ${jacket.baseColor}</p>
                     <p>Price: ${jacket.price}</p>
                     <button id="add-to-cart-${jacket.id}" data-id="${jacket.id}">add to cart</button>
+                    <a href="/product/index.html?id=${jacket.id}" class="read-more-btn">read more</a>
                 </div>`;
         }
         container.innerHTML = htmlContent;
