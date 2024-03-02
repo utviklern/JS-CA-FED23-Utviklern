@@ -11,7 +11,7 @@ export async function fetchProducts() { //funskjon for å hente all data fra api
             throw new Error('couldnt connect');
         }
         const data = await response.json();
-        console.log(data, "is recived"); 
+        // console.log(data, "is recived"); 
         return data.data || []; 
     } catch (error) {
         console.error("Could not get products:", error);

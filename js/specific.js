@@ -9,7 +9,7 @@ function getProductIdFromUrl() {
 async function displayProduct() {//funskjon for å vise jakke basert på id
     const productId = getProductIdFromUrl(); // Kaller på funksjonen for å hente jakke id.
     if (!productId) {
-        console.log('product id not found.'); // hvis feil
+        console.log('product id not found.'); // hvis feil gi feilmelding
         return;
     }
 
@@ -22,7 +22,7 @@ async function displayProduct() {//funskjon for å vise jakke basert på id
         const product = result.data; 
         const container = document.getElementById('spesific-container');
         const imageUrl = product.image.url;
-
+        //setter inn html med diverse info
         container.innerHTML = `
             <div class="product-details">
                 <img src="${imageUrl}" alt="${product.title}">
@@ -30,17 +30,17 @@ async function displayProduct() {//funskjon for å vise jakke basert på id
                 <p>${product.description}</p>
                 <p>color: ${product.baseColor}</p>
                 <p>gender: ${product.gender}</p>
-                <p>price: ${product.price} kr</p>
+                <p>price: ${product.price} nok</p>
                 <p>tags: ${product.tags}</p>
-                <button id="add-to-cart-button" data-id="${product.id}">Legg til i handlekurv</button>
+                <button id="add-to-cart-button" data-id="${product.id}">add to cart</button>
             </div>`;
             const addToCartBtn = document.getElementById('add-to-cart-button');
             addToCartBtn.addEventListener('click', () => addToCart(product));
     } catch (error) {
-        // Logger eventuelle feil i konsollen og viser en feilmelding til brukeren.
+        // Logger eventuelle feil i konsollen og viser en feilmelding hvis så
         console.error(error);
     }
 }
 
-// Kjører displayProduct-funksjonen når dokumentet er ferdig lastet.
+// når siden er klar, lastes funskjonen som lister jakkene 
 document.addEventListener('DOMContentLoaded', displayProduct);

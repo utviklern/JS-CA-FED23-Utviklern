@@ -10,7 +10,7 @@ async function showFilteredJackets(genderFilter = null) {
     for (let i = 0; i < allJackets.length; i++) {// looper gjennom alle jakkene og ser om filter stemmer overens med valg
         const product = allJackets[i];
         if (genderFilter && product.gender !== genderFilter) {
-            continue; // hopper over alle jakkene med andre verdier enn valgt filter
+            continue; // hopper over alle jakkene med andre verdier/gender enn valgt filter
         }
         const imageUrl = product.image.url;//lager html content for å plassere på siden
         const productHTML = `<div class="product">

@@ -94,4 +94,5 @@ function attachEventListeners() {
 // dobbelsikring ved at handlevognen vises når siden er ferdig lastet inn
 document.addEventListener('DOMContentLoaded', function() {
     displayCart();
+    updateCart();
 });
