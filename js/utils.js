@@ -1,6 +1,10 @@
 import { addToCart } from './cart.js';
 
 export async function fetchProducts() { //funskjon for å hente all data fra api og kunne bruke det flere steder (dry)
+    
+    const loadingIndicator = document.querySelector('.loading-indicator');
+    loadingIndicator.style.display = 'block'; //viser loading indicator
+
     try {
         const response = await fetch('https://v2.api.noroff.dev/rainy-days/');
         if (!response.ok) {
@@ -12,6 +16,9 @@ export async function fetchProducts() { //funskjon for å hente all data fra api
     } catch (error) {
         console.error("Could not get products:", error);
         return [];
+    }
+    finally {
+        loadingIndicator.style.display = 'none'; //fjerner loading indiscator når asynk funkjsonen er ferdig
     }
 }
 

@@ -1,3 +1,5 @@
+import { addToCart } from './cart.js';
+
 function getProductIdFromUrl() {
     const params = new URLSearchParams(window.location.search);
     return params.get('id'); // Henter id fra url
@@ -30,7 +32,10 @@ async function displayProduct() {//funskjon for å vise jakke basert på id
                 <p>gender: ${product.gender}</p>
                 <p>price: ${product.price} kr</p>
                 <p>tags: ${product.tags}</p>
+                <button id="add-to-cart-button" data-id="${product.id}">Legg til i handlekurv</button>
             </div>`;
+            const addToCartBtn = document.getElementById('add-to-cart-button');
+            addToCartBtn.addEventListener('click', () => addToCart(product));
     } catch (error) {
         // Logger eventuelle feil i konsollen og viser en feilmelding til brukeren.
         console.error(error);
