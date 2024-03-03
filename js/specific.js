@@ -7,9 +7,13 @@ function getProductIdFromUrl() {
 
 
 async function displayProduct() {//funskjon for å vise jakke basert på id
+
+    const loadingIndicator = document.querySelector('.loading-indicator');
+    loadingIndicator.style.display = 'block'; //viser loading indicator
+
     const productId = getProductIdFromUrl(); // Kaller på funksjonen for å hente jakke id.
     if (!productId) {
-        console.log('product id not found.'); // hvis feil gi feilmelding
+        console.log('product id not found.', error); // hvis feil gi feilmelding
         return;
     }
 
@@ -39,6 +43,9 @@ async function displayProduct() {//funskjon for å vise jakke basert på id
     } catch (error) {
         // Logger eventuelle feil i konsollen og viser en feilmelding hvis så
         console.error(error);
+    }
+    finally {
+        loadingIndicator.style.display = 'none'; //fjerner loading indiscator når asynk funkjsonen er ferdig
     }
 }
 

@@ -26,7 +26,7 @@ async function showFilteredJackets(genderFilter = null) {
     }
 
     
-    addToCartEvent(allJackets);// kaller på addToCartEvent smed alle jakkene som parameter. 
+    addToCartEvent(allJackets);// kaller på addToCartEvent med alle jakkene som parameter. 
 }
 
 
@@ -68,7 +68,7 @@ function handleGenderFilter() {
 
 document.addEventListener('DOMContentLoaded', function() {
     showFilteredJackets();
-    const genderRadios = document.querySelectorAll("input[name='gender-filter-btn']");// Setter oppclick event for filter knappene
+    const genderRadios = document.querySelectorAll("input[name='gender-filter-btn']");// Setter opp click event for filter knappene
     for (let i = 0; i < genderRadios.length; i++) {
         genderRadios[i].onclick = handleGenderFilter;
     }

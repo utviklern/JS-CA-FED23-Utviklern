@@ -20,3 +20,6 @@ color: black;
 #checkout-btn:hover {
     background-color: rgb(176, 176, 176);
 }
+.loading-indicator{
+    display: none;
+}

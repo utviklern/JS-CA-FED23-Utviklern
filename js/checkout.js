@@ -2,16 +2,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const cartProducts = document.getElementById('cart-items');
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     let htmlContent = '';
-    let totalPrice = 0; //lager en variabel fo rtotalpris
+    let totalPrice = 0; //lager en variabel for totalpris
 
-    if (cart.length > 0) { //looper gjennom elementene i locale storage og henter ut nøsvendig info
+    if (cart.length > 0) { //looper gjennom elementene i locale storage og henter ut nødvendig info
         for (let i = 0; i < cart.length; i++) {
-            let itemTotal = cart[i].price * cart[i].quantity; //ser totalprisen på hver jakke baseert på antall og bris
+            let itemTotal = cart[i].price * cart[i].quantity; //ser totalprisen på hver jakke baseert på antall og pris
             totalPrice += itemTotal; // legger verdien inn i total variabelen og går videre til neste index
             htmlContent += `
                 <div class="cart-jacket">
                     <h3>${cart[i].title}</h3>
-                    <p>price: ${cart[i].price} kr</p>
+                    <p>price: ${cart[i].price} nok</p>
                     <p>quantity: ${cart[i].quantity}</p>
                 </div>
             `;

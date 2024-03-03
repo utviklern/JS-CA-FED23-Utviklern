@@ -4,7 +4,7 @@ import { addToCart } from './cart.js';
 
 async function homeJackets() {
     const allJackets = await fetchProducts(); //henter api fetch fra utils
-    const container = document.getElementById('home-jackets-container'); //henter containerfra html for å sette inn resultatet av følgende funksjon
+    const container = document.getElementById('home-jackets-container'); //henter container fra html for å sette inn resultatet av følgende funksjon
 
     if (!allJackets || allJackets.length === 0) {
         container.innerHTML = '<p>nothing found.</p>';
@@ -13,7 +13,7 @@ async function homeJackets() {
 
     let htmlContent = '';//tømmer container for å unngå duplkiasjoner
     
-    for (let i = 0; i < allJackets.length && i < 3; i++) { //looper gjennom jakkene og printer jakke 1-3 ut på siden
+    for (let i = 0; i < allJackets.length && i < 3; i++) { //looper gjennom jakkene og printer jakke 1-3 fra api ut på siden
             const jacket = allJackets[i];
             const imageUrl = jacket.image.url;
             const sizes = jacket.sizes.join(', ');
@@ -31,7 +31,7 @@ async function homeJackets() {
                 </div>`;
         }
         container.innerHTML = htmlContent;
-        addToCartListener(allJackets, addToCart);// legger til event listener som
+        addToCartListener(allJackets, addToCart);// legger til event listener for alle add to cart knappene
     }
 
 
