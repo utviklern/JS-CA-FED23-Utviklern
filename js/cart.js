@@ -1,4 +1,3 @@
-// Last inn eksisterende handlekurv fra lokal lagring, eller opprett en ny tom liste hvis ingen eksisterer.
 var cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 // legg til produkt i handlekurven.
@@ -23,7 +22,7 @@ export function addToCart(product) {
 }
 
 
-export function removeFromCart(productId) {// Funksjon for å fjerne et produkt
+export function removeFromCart(productId) {// Funksjon for å fjerne et produkt fra hadlevogn
     for (var i = 0; i < cart.length; i++) {
         if (cart[i].id === productId) {
             if (cart[i].quantity > 1) {
